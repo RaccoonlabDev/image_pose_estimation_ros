@@ -2,7 +2,7 @@
 	    <arg name="camera_name" default="usb_cam" />
 
 	<!-- start  marker_server_node -->
-	<node pkg="image_pose_estimation" name="image_pose_estimation_node" type="image_pose_estimation.py" output="screen" respawn="true">
+	<node pkg="image_pose_estimation_ros" name="image_pose_estimation_node" type="image_pose_estimation.py" output="screen" respawn="true">
 		<param name="camera_name" value="$(arg camera_name)" />
 
 		<param name="use_image" value="true" />
