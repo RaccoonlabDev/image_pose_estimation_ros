@@ -22,6 +22,7 @@ camera_info ([sensor_msgs/CameraInfo](http://docs.ros.org/api/sensor_msgs/html/m
 
 find_object[geometry_msgs/PoseStamped](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/PoseStamped.html)): Position of the found object relative "map_id"<br/>
 tf2 ([geometry_msgs/TransformStamped](http://docs.ros.org/api/geometry_msgs/html/msg/TransformStamped.html)): Tf2 pose of find object<br/> 
+find_object/image ([sensor_msgs/Image](http://docs.ros.org/api/sensor_msgs/html/msg/Image.html)): Debug image with draw object.<br/>
 
 #### Parameters:
 
@@ -88,31 +89,3 @@ tf2 ([geometry_msgs/TransformStamped](http://docs.ros.org/api/geometry_msgs/html
 ~max_dist (float, default: "5.0" )<br/>
 &emsp;&emsp;*Maximum distance (meter) of find object (need for filter).<br/>*
 
-# ros Line dist-orient estimation
-
-The Ros package to get Line data and orientation wrt the camera.
-Written on Python Opencv (Canny + Contours Detection).
-
-**Test run:**
-```bash
-roslaunch image_pose_estimation_ros pose_estimation.launch 
-```
-
-#### Subscribed Topics:
-
-image_raw ([sensor_msgs/Image](http://docs.ros.org/api/sensor_msgs/html/msg/Image.html)): Raw image stream from the camera driver.<br/>
-camera_info ([sensor_msgs/CameraInfo](http://docs.ros.org/api/sensor_msgs/html/msg/CameraInfo.html)): Camera metadata.<br/>
-
-#### Publisher Topics:
-
-find_line([geometry_msgs/PoseStamped]()): Distance(pose x) and orientation (orient z) relative to "camera_id"<br/>
-
-#### Parameters:
-
-~rate (float, default: 10)<br/>
-&emsp;&emsp;*Frame rate of node. If rate <= 0, work without delay<br/>*
-~frame_id (string, default: "object")<br/>
-&emsp;&emsp;*Name of find object.<br/>*
-~map_id (string, default: "map")<br/>
-&emsp;&emsp;*show image or not .<br/>*
-~show_image (bool, default: False)<br/>
