@@ -1,22 +1,22 @@
 <launch>
-	    <arg name="camera_name" default="usb_cam" />
+	    <arg name="camera_name" default="csi" />
 
 	<!-- start  marker_server_node -->
 	<node pkg="image_pose_estimation_ros" name="image_pose_estimation_node" type="image_pose_estimation.py" output="screen" respawn="true">
 		<param name="camera_name" value="$(arg camera_name)" />
 
 		<param name="use_image" value="true" />
-		<param name="image_path" value="$(find image_pose_estimation)/include/coon.jpg" />
+		<param name="image_path" value="$(find image_pose_estimation_ros)/include/rirpc_logo.jpg" />
 		<!--the width of the image in meters-->
 		<param name="size_image" value="0.2" />
 
 		<param name="min_match_count" value="15" />
-		<param name="show_image" value="false" />
+		<param name="show_image" value="true" />
 
 		<param name="blur_threshold" value="50" />
 		<param name="frame_id" value="object" />
 		<param name="map_id" value="map" />
 		<param name="max_dist" value="5" />
-		<param name="rate" value="30" />
+		<param name="rate" value="5" />
 	</node>
 </launch>
